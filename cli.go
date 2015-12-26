@@ -22,9 +22,9 @@ type CLI struct {
 // Run invokes the CLI with the given arguments.
 func (cli *CLI) Run(args []string) int {
 	var (
-		c string
-		r string
-		t string
+		channel string
+		region  string
+		amiType string
 
 		version bool
 	)
@@ -33,14 +33,9 @@ func (cli *CLI) Run(args []string) int {
 	flags := flag.NewFlagSet(Name, flag.ContinueOnError)
 	flags.SetOutput(cli.errStream)
 
-	flags.StringVar(&c, "c", "", "")
-	flags.StringVar(&c, "c", "", "(Short)")
-
-	flags.StringVar(&r, "r", "", "")
-	flags.StringVar(&r, "r", "", "(Short)")
-
-	flags.StringVar(&t, "t", "", "")
-	flags.StringVar(&t, "t", "", "(Short)")
+	flags.StringVar(&channel, "c", "", "CoreOS channel (alpha, beta, stable)")
+	flags.StringVar(&region, "r", "", "AWS region")
+	flags.StringVar(&amiType, "t", "", "AMI type (PV, HVM)")
 
 	flags.BoolVar(&version, "version", false, "Print version information and quit.")
 
@@ -55,11 +50,11 @@ func (cli *CLI) Run(args []string) int {
 		return ExitCodeOK
 	}
 
-	_ = c
+	_ = channel
 
-	_ = r
+	_ = region
 
-	_ = t
+	_ = amiType
 
 	return ExitCodeOK
 }
