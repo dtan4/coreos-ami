@@ -50,11 +50,15 @@ func (cli *CLI) Run(args []string) int {
 		return ExitCodeOK
 	}
 
-	_ = channel
-
 	_ = region
 
 	_ = amiType
+
+	if channel == "" {
+		fmt.Fprintln(cli.errStream, "CoreOS channel (-c) must be specified!")
+		fmt.Fprintln(cli.errStream, "Available channels: alpha, beta, stable")
+		return ExitCodeError
+	}
 
 	return ExitCodeOK
 }
