@@ -1,6 +1,7 @@
 # coreos-ami
+[![Build Status](https://travis-ci.org/dtan4/coreos-ami.svg?branch=master)](https://travis-ci.org/dtan4/coreos-ami)
 
-
+__coreos-ami__ is a CLI to get [current official CoreOS AMI IDs](https://coreos.com/os/docs/latest/booting-on-ec2.html).
 
 ## Description
 
