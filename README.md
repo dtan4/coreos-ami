@@ -3,9 +3,20 @@
 
 __coreos-ami__ is a CLI to get [the current official CoreOS AMI IDs](https://coreos.com/os/docs/latest/booting-on-ec2.html).
 
-## Description
-
 ## Usage
+
+```bash
+$ coreos-ami -c <channel> [-r <region>] [-t <type>]
+```
+
+### Options
+
+- `-c <channel>` (Required)
+  - CoreOS channel (alpha, beta, stable)
+- `-r <region>` (Optional)
+  - AWS region
+- `-t <type>` (Optional)
+  - AMI type (PV, HVM)
 
 ## Install
 
