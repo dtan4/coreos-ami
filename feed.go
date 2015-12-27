@@ -28,3 +28,7 @@ type ReleaseInfo struct {
 	ReleaseDate string `json:"release_date"`
 	Platform    string `json:"aws"`
 }
+
+func FeedURLOf(channel string) string {
+	return "https://coreos.com/dist/aws/aws-" + channel + ".json"
+}
