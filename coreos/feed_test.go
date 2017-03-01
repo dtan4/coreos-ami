@@ -103,3 +103,29 @@ func TestRetrieveAMIFeed(t *testing.T) {
 		t.Errorf("AMIs does not match. expected: %#v, got: %#v", expectedAMIs, amiFeed.AMIs)
 	}
 }
+
+func TestTabularize(t *testing.T) {
+	amis := map[string]map[string]string{
+		"eu-central-1": map[string]string{
+			"hvm": "ami-273df748",
+			"pv":  "ami-4233f92d",
+		},
+		"ap-northeast-1": map[string]string{
+			"hvm": "ami-91f3bbf6",
+			"pv":  "ami-45f3bb22",
+		},
+	}
+	amiFeed := &AMIFeed{
+		AMIs: amis,
+	}
+
+	expected := `ap-northeast-1 hvm ami-91f3bbf6
+ap-northeast-1 pv  ami-45f3bb22
+eu-central-1   hvm ami-273df748
+eu-central-1   pv  ami-4233f92d
+`
+
+	if got := amiFeed.Tabularize(); got != expected {
+		t.Errorf("Table does not match.\nexpected: %q\ngot:      %q\n\nexpected (pretty):\n%s\ngot (pretty):\n%s", expected, got, expected, got)
+	}
+}
