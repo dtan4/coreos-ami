@@ -1,22 +1,21 @@
 # coreos-ami
 [![Build Status](https://travis-ci.org/dtan4/coreos-ami.svg?branch=master)](https://travis-ci.org/dtan4/coreos-ami)
 
-__coreos-ami__ is a CLI to get [the current official CoreOS AMI IDs](https://coreos.com/os/docs/latest/booting-on-ec2.html).
+__coreos-ami__ is a CLI to print [CoreOS Container Linux AMI IDs](https://coreos.com/os/docs/latest/booting-on-ec2.html).
 
 ## Usage
 
 ```bash
-$ coreos-ami -c <channel> [-r <region>] [-t <type>]
+$ coreos-ami [alpha|beta|stable]
+
+# Example
+$ coreos-ami beta | head -n5
+ap-northeast-1 hvm ami-91f3bbf6
+ap-northeast-1 pv  ami-45f3bb22
+ap-northeast-2 hvm ami-4c16c622
+ap-northeast-2 pv  ami-1614c478
+ap-south-1     hvm ami-4a334325
 ```
-
-### Options
-
-- `-c <channel>` (Required)
-  - CoreOS channel (alpha, beta, stable)
-- `-r <region>` (Optional)
-  - AWS region
-- `-t <type>` (Optional)
-  - AMI type (PV, HVM)
 
 ## Install
 

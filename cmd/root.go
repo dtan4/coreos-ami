@@ -7,12 +7,10 @@ import (
 	"github.com/spf13/cobra"
 )
 
-var cfgFile string
-
 // RootCmd represents the base command when called without any subcommands
 var RootCmd = &cobra.Command{
 	Use:   "coreos-ami",
-	Short: "CLI to get Container Linux AMIs",
+	Short: "CLI to print CoreOS Container Linux AMIs",
 }
 
 // Execute adds all child commands to the root command sets flags appropriately.
