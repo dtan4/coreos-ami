@@ -1,8 +1,9 @@
 package main
 
-import "os"
+import (
+	"fmt"
+)
 
 func main() {
-	cli := &CLI{outStream: os.Stdout, errStream: os.Stderr}
-	os.Exit(cli.Run(os.Args))
+	fmt.Println("coreos-ami")
 }
