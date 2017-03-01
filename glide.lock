@@ -1,5 +1,5 @@
-hash: c1edf7188d0493947a1d608018ea8b6f48b72f64b76368d8f50c16e49d7ad6d9
-updated: 2017-03-01T10:33:05.461965569+09:00
+hash: 1252824428177e3d03cc9da26353ed68a0cb5a8490c860d10f44e16fb3bf0eb5
+updated: 2017-03-01T11:21:48.099612779+09:00
 imports:
 - name: github.com/fsnotify/fsnotify
   version: a904159b9206978bb6d53fcc7a769e5cd726c737
@@ -16,6 +16,8 @@ imports:
   - json/token
 - name: github.com/inconshreveable/mousetrap
   version: 76626ae9c91c4f2a10f34cad8ce83ea42c93bb75
+- name: github.com/jarcoal/httpmock
+  version: 4442edb3db31196622da56482fd8d0fa375fba4d
 - name: github.com/magiconair/properties
   version: b3b15ef068fd0b17ddf408a23669f20811d194d2
 - name: github.com/mitchellh/mapstructure
