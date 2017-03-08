@@ -13,6 +13,8 @@ var channels = []string{
 	"stable",
 }
 
+var verbose bool
+
 func init() {
 	for _, channel := range channels {
 		command := &cobra.Command{
@@ -24,12 +26,22 @@ func init() {
 					return err
 				}
 
-				fmt.Printf(amiFeed.Tabularize())
+				if verbose {
+					fmt.Printf("Version:      %s\n", amiFeed.ReleaseInfo["version"])
+					fmt.Printf("Release date: %s\n", amiFeed.ReleaseInfo["release_date"])
+					fmt.Printf("\n")
+
+					fmt.Println("AMIs:")
+				}
+
+				fmt.Printf(amiFeed.TabularizeAMIs())
 
 				return nil
 			},
 		}
 
 		RootCmd.AddCommand(command)
+
+		command.Flags().BoolVarP(&verbose, "verbose", "v", false, "Print detailed information")
 	}
 }

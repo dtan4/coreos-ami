@@ -16,6 +16,7 @@ type AMIFeed struct {
 	AMIs        map[string]map[string]string
 }
 
+// RetrieveAMIFeed retrieves JSON feed of AMI list
 func RetrieveAMIFeed(channel string) (*AMIFeed, error) {
 	url := feedURL(channel)
 
@@ -46,7 +47,8 @@ func feedURL(channel string) string {
 	return fmt.Sprintf("https://coreos.com/dist/aws/aws-%s.json", channel)
 }
 
-func (a *AMIFeed) Tabularize() string {
+// TabularizeAMIs returns table form of the list of AMIs
+func (a *AMIFeed) TabularizeAMIs() string {
 	buf := new(bytes.Buffer)
 
 	w := tabwriter.NewWriter(buf, 0, 0, 1, ' ', 0)

@@ -104,7 +104,7 @@ func TestRetrieveAMIFeed(t *testing.T) {
 	}
 }
 
-func TestTabularize(t *testing.T) {
+func TestTabularizeAMIs(t *testing.T) {
 	amis := map[string]map[string]string{
 		"eu-central-1": map[string]string{
 			"hvm": "ami-273df748",
@@ -125,7 +125,7 @@ eu-central-1   hvm ami-273df748
 eu-central-1   pv  ami-4233f92d
 `
 
-	if got := amiFeed.Tabularize(); got != expected {
+	if got := amiFeed.TabularizeAMIs(); got != expected {
 		t.Errorf("Table does not match.\nexpected: %q\ngot:      %q\n\nexpected (pretty):\n%s\ngot (pretty):\n%s", expected, got, expected, got)
 	}
 }
